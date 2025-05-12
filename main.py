@@ -1,13 +1,15 @@
-from my_secrets import API_KEY
-
+'''Simple python file to pull data from an API and write to a csv.'''
 import requests
 import pandas as pd
 from datetime import datetime, timezone
 import csv
+import os
+
+OPENWEATHER_API_KEY = os.environ.get("OPENWEATHER_API_KEY")
 
 def get_data_from_latlon(lat, lon):
     '''Make a request to https://home.openweathermap.org/'''
-    response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_KEY}")
+    response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={OPENWEATHER_API_KEY}")
     return response.json()
 
 def transform_data(data):
