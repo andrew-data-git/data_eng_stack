@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  weather_app:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    command: python main.py
