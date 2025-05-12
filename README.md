@@ -13,7 +13,6 @@ Completion of such a task should enable me to reproduce this work in real projec
 # TODO 1
 * get raw data of weather
 * create a simple python etl pipeline
-* write a shell script to run with CRON schedule
 * dockerise this
 
 # TODO 2
