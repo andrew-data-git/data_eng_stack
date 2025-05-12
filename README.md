@@ -15,7 +15,7 @@ Completion of such a task should enable me to reproduce this work in real projec
 * create a simple python etl pipeline
 * dockerise this
 
-# TODO 2
+# TODO 2 - branch off
 * pull from a weather API
 * batch ingest with py requests
 * load to a postgres db
