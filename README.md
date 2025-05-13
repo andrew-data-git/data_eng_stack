@@ -19,6 +19,16 @@ Completion of such a task should enable me to reproduce this work in real projec
 * pull from a weather API
 * batch ingest with py requests
 * load to a postgres db
+
+# TODO 4 - branch off
+* save data persistent volume
+* make so db uses 
+
+# TODO 5 - branch off
 * transform with dbt
 * orchestrated via airflow
 * visualised with superset
+
+# TODO 6 - model
+* an ML prediction
+* make live update
