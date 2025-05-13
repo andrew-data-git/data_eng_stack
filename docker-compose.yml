@@ -12,16 +12,26 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
   
-  app:
+  # app:
+  #   build: .
+  #   container_name: weather_app
+  #   depends_on:
+  #     - db
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - .:/app
+    # command: python main.py
+
+  cronjob:
     build: .
-    container_name: weather_app
+    container_name: cronjob
     depends_on:
       - db
     env_file:
       - .env
     volumes:
       - .:/app
-    command: python main.py
 
 volumes:
   pgdata:
