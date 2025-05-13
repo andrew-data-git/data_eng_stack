@@ -10,12 +10,12 @@ OPENWEATHER_API_KEY = os.environ.get("OPENWEATHER_API_KEY")
 
 def get_data_from_latlon(lat, lon):
     '''Make a request to https://home.openweathermap.org/, return the json response'''
-    response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={OPENWEATHER_API_KEY}")
-
-    if response.status_code != 200:
-        print(f"[{datetime.now()}] Failed with status:", response.status_code) 
-
-    return response.json()
+    try:
+        response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={OPENWEATHER_API_KEY}")
+        return response.json()
+    except requests.exceptions.RequestException as e:  # This is the correct syntax
+        raise SystemExit(e)
+    
 
 def transform_data(data):
     '''Take a dict of raw weather data and process it to another dict.'''
@@ -76,7 +76,9 @@ if __name__ == '__main__':
     LATITUDE = 51.444124
     LONGITUDE = -2.564519
 
+    print('Getting data')
     data = get_data_from_latlon(LATITUDE, LONGITUDE)
+    print(data)
     weather_data = transform_data(data) # a dict of transformed weather data
 
     # create postgres cursor
@@ -113,8 +115,6 @@ if __name__ == '__main__':
 
     cursor.close()
     conn.close()
-
-    print('script end', datetime.now(timezone.utc).strftime('%Y/%m/%d-%H:%M'))
 
 
  
