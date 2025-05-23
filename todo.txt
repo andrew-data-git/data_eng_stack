@@ -1,0 +1,26 @@
+
+
+docker-compose file to spin up 
+    airflow
+    postgres
+    my python extractor
+
+dags
+    extract data into postgres
+    transfrom data 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
